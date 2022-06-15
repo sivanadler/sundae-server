@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import Options from '../Options';
 
 test('displays image for each scoop option from server', async () => {
@@ -12,8 +11,9 @@ test('displays image for each scoop option from server', async () => {
   // confirm alt text of images
   // @ts-ignore
   const altText = scoopImages.map((element) => element.alt);
-  expect(altText).toEqual(['Chocolate scoop', 'Vanilla scoop']);
+  expect(altText).toEqual(['Chocolate Scoop', 'Vanilla Scoop']);
 });
+
 
 test('Displays image for each toppings option from server', async () => {
   // Mock Service Worker will return three toppings from server
@@ -27,23 +27,8 @@ test('Displays image for each toppings option from server', async () => {
   // @ts-ignore
   const imageTitles = images.map((img) => img.alt);
   expect(imageTitles).toEqual([
-    'Cherries topping',
-    'M&Ms topping',
-    'Hot fudge topping',
+    'Cherries Topping',
+    'M&Ms Topping',
+    'Hot Fudge Topping',
   ]);
-});
-
-test("don't update total if scoops input is invalid", async () => {
-  render(<Options optionType="scoops" />);
-
-  // expect button to be enabled after adding scoop
-  const vanillaInput = await screen.findByRole('spinbutton', {
-    name: 'Vanilla',
-  });
-  userEvent.clear(vanillaInput);
-  userEvent.type(vanillaInput, '-1');
-
-  // make sure scoops subtotal hasn't updated
-  const scoopsSubtotal = screen.getByText('Scoops total: $0.00');
-  expect(scoopsSubtotal).toBeInTheDocument();
 });

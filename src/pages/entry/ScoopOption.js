@@ -6,8 +6,7 @@ export default function ScoopOption({name, imagePath}){
             <img
                 style={{ width: '75%' }}
                 src={`http://localhost:3030/${imagePath}`}
-                alt={`${name} scoop`}
-                aria-label="testing"
+                alt={`${name} Scoop`}
             />
         </Col>
     )

@@ -18,7 +18,7 @@ function Options({optionType}){
         .catch(error => setError(true))
     }, [optionType])
 
-    if(AlertBanner){
+    if(error){
         return <AlertBanner message={error}/>
     }
     
