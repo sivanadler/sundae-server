@@ -5,7 +5,6 @@ function OrderEntry() {
         <div>
             <Options optionType={'scoops'}/>
             <Options optionType={'toppings'}/>
-
         </div>
     )
 }
